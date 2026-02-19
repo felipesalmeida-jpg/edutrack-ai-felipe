@@ -1,1 +1,1 @@
-# edutrack-ai-felipe
+# Projeto EduTrack AI
