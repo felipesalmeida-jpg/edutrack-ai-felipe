@@ -9,15 +9,6 @@
     "original": "Ly8gVGhpcyBncm91cCBjb250YWlucyBBUEkgZW5kcG9pbnRzIHRoYXQgeW91ciBmcm9udC1lbmQgd2lsbCB1c2UgdG8gY29tbXVuaWNhdGUgd2l0aCB5b3VyIERhdGFiYXNlLiBZb3UgY2FuIGNyZWF0ZSBuZXcgb25lcyBieSBjbGlja2luZyBpbnNpZGUKYXBpX2dyb3VwICJFZHV0cmFjayBBSSBGZWxpcGUiIHsKICBjYW5vbmljYWwgPSAiRV93aERGZTUiCn0="
   },
   {
-    "id": 3590575,
-    "type": "api_endpoint",
-    "path": "apis/edutrack_ai_felipe/3590575_my_first_api_GET.xs",
-    "status": "unchanged",
-    "staged": false,
-    "sha256": "213ddd5575aa3a11f0609dfabffbb2860cd07d8ef13f28c8ab050c44aad1b556",
-    "original": "cXVlcnkgbXlGaXJzdEFQSSB2ZXJiPUdFVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogIH0KCiAgc3RhY2sgewogIH0KCiAgcmVzcG9uc2UgPSBudWxsCn0="
-  },
-  {
     "id": 3590614,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590614_edutrack_GET.xs",
@@ -61,6 +52,15 @@
     "staged": false,
     "sha256": "b599eeaccc51a9a497c647b51e13b5a4a94e00472bd45486a74bd6272f479a3f",
     "original": "Ly8gRWRpdCBlZHV0cmFjayByZWNvcmQKcXVlcnkgImVkdXRyYWNrL3tlZHV0cmFja19pZH0iIHZlcmI9UEFUQ0ggewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICAgIGludCBlZHV0cmFja19pZD8gZmlsdGVycz1taW46MQogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAiZWR1dHJhY2siCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICB1dGlsLmdldF9yYXdfaW5wdXQgewogICAgICBlbmNvZGluZyA9ICJqc29uIgogICAgICBleGNsdWRlX21pZGRsZXdhcmUgPSBmYWxzZQogICAgfSBhcyAkcmF3X2lucHV0CiAgCiAgICBkYi5wYXRjaCBlZHV0cmFjayB7CiAgICAgIGZpZWxkX25hbWUgPSAiaWQiCiAgICAgIGZpZWxkX3ZhbHVlID0gJGlucHV0LmVkdXRyYWNrX2lkCiAgICAgIGRhdGEgPSBgJGlucHV0fHBpY2s6KCRyYXdfaW5wdXR8a2V5cylgfGZpbHRlcl9udWxsfGZpbHRlcl9lbXB0eV90ZXh0CiAgICB9IGFzICRlZHV0cmFjawogIH0KCiAgcmVzcG9uc2UgPSAkZWR1dHJhY2sKfQ=="
+  },
+  {
+    "id": 3590575,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590575_my_first_api_GET.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "213ddd5575aa3a11f0609dfabffbb2860cd07d8ef13f28c8ab050c44aad1b556",
+    "original": "cXVlcnkgbXlGaXJzdEFQSSB2ZXJiPUdFVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogIH0KCiAgc3RhY2sgewogIH0KCiAgcmVzcG9uc2UgPSBudWxsCn0="
   },
   {
     "id": 750503,
