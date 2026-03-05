@@ -1,0 +1,74 @@
+[
+  {
+    "id": 368461,
+    "type": "api_group",
+    "path": "apis/edutrack_ai_felipe/api_group.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "2beb7fba819b8739d52a597e8dcdf102c118f1bca1e7f52b3e1eebb1817e91b7",
+    "original": "Ly8gVGhpcyBncm91cCBjb250YWlucyBBUEkgZW5kcG9pbnRzIHRoYXQgeW91ciBmcm9udC1lbmQgd2lsbCB1c2UgdG8gY29tbXVuaWNhdGUgd2l0aCB5b3VyIERhdGFiYXNlLiBZb3UgY2FuIGNyZWF0ZSBuZXcgb25lcyBieSBjbGlja2luZyBpbnNpZGUKYXBpX2dyb3VwICJFZHV0cmFjayBBSSBGZWxpcGUiIHsKICBjYW5vbmljYWwgPSAiRV93aERGZTUiCn0="
+  },
+  {
+    "id": 3590614,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590614_edutrack_GET.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "c0976b46b10f9830fcc00a34261895da32c3d13df58b48b38be1402b9e64669d",
+    "original": "Ly8gUXVlcnkgYWxsIGVkdXRyYWNrIHJlY29yZHMKcXVlcnkgZWR1dHJhY2sgdmVyYj1HRVQgewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICB9CgogIHN0YWNrIHsKICAgIGRiLnF1ZXJ5IGVkdXRyYWNrIHsKICAgICAgcmV0dXJuID0ge3R5cGU6ICJsaXN0In0KICAgIH0gYXMgJGVkdXRyYWNrCiAgfQoKICByZXNwb25zZSA9ICRlZHV0cmFjawp9"
+  },
+  {
+    "id": 3590615,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590615_edutrack_POST.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "fd39b827031e597192d3619f965a8d585e9ca603ab14f722bce56fe4b7420666",
+    "original": "Ly8gTWV1IHByaW1laXJvIGNvbWVudMOhcmlvIHZpYSBWUyBDb2RlLgovLyBBZGQgZWR1dHJhY2sgcmVjb3JkCnF1ZXJ5IGVkdXRyYWNrIHZlcmI9UE9TVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAiZWR1dHJhY2siCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICBkYi5hZGQgZWR1dHJhY2sgewogICAgICBkYXRhID0ge2NyZWF0ZWRfYXQ6ICJub3cifQogICAgfSBhcyAkZWR1dHJhY2sKICB9CgogIHJlc3BvbnNlID0gJGVkdXRyYWNrCn0="
+  },
+  {
+    "id": 3590612,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590612_edutrack_edutrack_id_DELETE.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "16625820c4aee93473bb9cbfb318b36eb35c6da202680e89008a77b786ea87e9",
+    "original": "Ly8gRGVsZXRlIGVkdXRyYWNrIHJlY29yZC4KcXVlcnkgImVkdXRyYWNrL3tlZHV0cmFja19pZH0iIHZlcmI9REVMRVRFIHsKICBhcGlfZ3JvdXAgPSAiRWR1dHJhY2sgQUkgRmVsaXBlIgoKICBpbnB1dCB7CiAgICBpbnQgZWR1dHJhY2tfaWQ/IGZpbHRlcnM9bWluOjEKICB9CgogIHN0YWNrIHsKICAgIGRiLmRlbCBlZHV0cmFjayB7CiAgICAgIGZpZWxkX25hbWUgPSAiaWQiCiAgICAgIGZpZWxkX3ZhbHVlID0gJGlucHV0LmVkdXRyYWNrX2lkCiAgICB9CiAgfQoKICByZXNwb25zZSA9IG51bGwKfQ=="
+  },
+  {
+    "id": 3590613,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590613_edutrack_edutrack_id_GET.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "fc3644ad70709d7eefcb046d7d79c7de7a6d8c8e347ca42c3f1ddcbc686f60c2",
+    "original": "Ly8gR2V0IGVkdXRyYWNrIHJlY29yZApxdWVyeSAiZWR1dHJhY2sve2VkdXRyYWNrX2lkfSIgdmVyYj1HRVQgewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICAgIGludCBlZHV0cmFja19pZD8gZmlsdGVycz1taW46MQogIH0KCiAgc3RhY2sgewogICAgZGIuZ2V0IGVkdXRyYWNrIHsKICAgICAgZmllbGRfbmFtZSA9ICJpZCIKICAgICAgZmllbGRfdmFsdWUgPSAkaW5wdXQuZWR1dHJhY2tfaWQKICAgIH0gYXMgJGVkdXRyYWNrCiAgCiAgICBwcmVjb25kaXRpb24gKCRlZHV0cmFjayAhPSBudWxsKSB7CiAgICAgIGVycm9yX3R5cGUgPSAibm90Zm91bmQiCiAgICAgIGVycm9yID0gIk5vdCBGb3VuZC4iCiAgICB9CiAgfQoKICByZXNwb25zZSA9ICRlZHV0cmFjawp9"
+  },
+  {
+    "id": 3590616,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590616_edutrack_edutrack_id_PATCH.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "b599eeaccc51a9a497c647b51e13b5a4a94e00472bd45486a74bd6272f479a3f",
+    "original": "Ly8gRWRpdCBlZHV0cmFjayByZWNvcmQKcXVlcnkgImVkdXRyYWNrL3tlZHV0cmFja19pZH0iIHZlcmI9UEFUQ0ggewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICAgIGludCBlZHV0cmFja19pZD8gZmlsdGVycz1taW46MQogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAiZWR1dHJhY2siCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICB1dGlsLmdldF9yYXdfaW5wdXQgewogICAgICBlbmNvZGluZyA9ICJqc29uIgogICAgICBleGNsdWRlX21pZGRsZXdhcmUgPSBmYWxzZQogICAgfSBhcyAkcmF3X2lucHV0CiAgCiAgICBkYi5wYXRjaCBlZHV0cmFjayB7CiAgICAgIGZpZWxkX25hbWUgPSAiaWQiCiAgICAgIGZpZWxkX3ZhbHVlID0gJGlucHV0LmVkdXRyYWNrX2lkCiAgICAgIGRhdGEgPSBgJGlucHV0fHBpY2s6KCRyYXdfaW5wdXR8a2V5cylgfGZpbHRlcl9udWxsfGZpbHRlcl9lbXB0eV90ZXh0CiAgICB9IGFzICRlZHV0cmFjawogIH0KCiAgcmVzcG9uc2UgPSAkZWR1dHJhY2sKfQ=="
+  },
+  {
+    "id": 3590575,
+    "type": "api_endpoint",
+    "path": "apis/edutrack_ai_felipe/3590575_my_first_api_GET.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "213ddd5575aa3a11f0609dfabffbb2860cd07d8ef13f28c8ab050c44aad1b556",
+    "original": "cXVlcnkgbXlGaXJzdEFQSSB2ZXJiPUdFVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogIH0KCiAgc3RhY2sgewogIH0KCiAgcmVzcG9uc2UgPSBudWxsCn0="
+  },
+  {
+    "id": 750503,
+    "type": "table",
+    "path": "tables/750503_edutrack.xs",
+    "status": "unchanged",
+    "staged": false,
+    "sha256": "6376dd67d1b68e9ea6a713c159fe0e3260df657f7f0d142da3950d47ee98670c",
+    "original": "dGFibGUgZWR1dHJhY2sgewogIGF1dGggPSBmYWxzZQoKICBzY2hlbWEgewogICAgaW50IGlkCiAgICB0aW1lc3RhbXAgY3JlYXRlZF9hdD89bm93CiAgfQoKICBpbmRleCA9IFsKICAgIHt0eXBlOiAicHJpbWFyeSIsIGZpZWxkOiBbe25hbWU6ICJpZCJ9XX0KICAgIHt0eXBlOiAiYnRyZWUiLCBmaWVsZDogW3tuYW1lOiAiY3JlYXRlZF9hdCIsIG9wOiAiZGVzYyJ9XX0KICBdCn0="
+  }
+]
