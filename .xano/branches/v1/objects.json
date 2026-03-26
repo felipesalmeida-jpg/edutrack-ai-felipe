@@ -1,15 +1,15 @@
 [
   {
-    "id": 368461,
+    "id": 391003,
     "type": "api_group",
     "path": "apis/edutrack_ai_felipe/api_group.xs",
     "status": "unchanged",
     "staged": false,
-    "sha256": "2beb7fba819b8739d52a597e8dcdf102c118f1bca1e7f52b3e1eebb1817e91b7",
-    "original": "Ly8gVGhpcyBncm91cCBjb250YWlucyBBUEkgZW5kcG9pbnRzIHRoYXQgeW91ciBmcm9udC1lbmQgd2lsbCB1c2UgdG8gY29tbXVuaWNhdGUgd2l0aCB5b3VyIERhdGFiYXNlLiBZb3UgY2FuIGNyZWF0ZSBuZXcgb25lcyBieSBjbGlja2luZyBpbnNpZGUKYXBpX2dyb3VwICJFZHV0cmFjayBBSSBGZWxpcGUiIHsKICBjYW5vbmljYWwgPSAiRV93aERGZTUiCn0="
+    "sha256": "7e356404ac99ed4475bcbb2f4c55402a0b66ba75800b5328f3dc99d5616b4d1a",
+    "original": "Ly8gVGhpcyBncm91cCBjb250YWlucyBBUEkgZW5kcG9pbnRzIHRoYXQgeW91ciBmcm9udC1lbmQgd2lsbCB1c2UgdG8gY29tbXVuaWNhdGUgd2l0aCB5b3VyIERhdGFiYXNlLiBZb3UgY2FuIGNyZWF0ZSBuZXcgb25lcyBieSBjbGlja2luZyBpbnNpZGUKYXBpX2dyb3VwICJFZHV0cmFjayBBSSBGZWxpcGUiIHsKICBjYW5vbmljYWwgPSAick8tczJKbmoiCn0="
   },
   {
-    "id": 3590614,
+    "id": 3754848,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590614_edutrack_GET.xs",
     "status": "unchanged",
@@ -18,7 +18,7 @@
     "original": "Ly8gUXVlcnkgYWxsIGVkdXRyYWNrIHJlY29yZHMKcXVlcnkgZWR1dHJhY2sgdmVyYj1HRVQgewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICB9CgogIHN0YWNrIHsKICAgIGRiLnF1ZXJ5IGVkdXRyYWNrIHsKICAgICAgcmV0dXJuID0ge3R5cGU6ICJsaXN0In0KICAgIH0gYXMgJGVkdXRyYWNrCiAgfQoKICByZXNwb25zZSA9ICRlZHV0cmFjawp9"
   },
   {
-    "id": 3590615,
+    "id": 3754849,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590615_edutrack_POST.xs",
     "status": "unchanged",
@@ -27,7 +27,7 @@
     "original": "Ly8gTWV1IHByaW1laXJvIGNvbWVudMOhcmlvIHZpYSBWUyBDb2RlLgovLyBBZGQgZWR1dHJhY2sgcmVjb3JkCnF1ZXJ5IGVkdXRyYWNrIHZlcmI9UE9TVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAiZWR1dHJhY2siCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICBkYi5hZGQgZWR1dHJhY2sgewogICAgICBkYXRhID0ge2NyZWF0ZWRfYXQ6ICJub3cifQogICAgfSBhcyAkZWR1dHJhY2sKICB9CgogIHJlc3BvbnNlID0gJGVkdXRyYWNrCn0="
   },
   {
-    "id": 3590612,
+    "id": 3754850,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590612_edutrack_edutrack_id_DELETE.xs",
     "status": "unchanged",
@@ -36,7 +36,7 @@
     "original": "Ly8gRGVsZXRlIGVkdXRyYWNrIHJlY29yZC4KcXVlcnkgImVkdXRyYWNrL3tlZHV0cmFja19pZH0iIHZlcmI9REVMRVRFIHsKICBhcGlfZ3JvdXAgPSAiRWR1dHJhY2sgQUkgRmVsaXBlIgoKICBpbnB1dCB7CiAgICBpbnQgZWR1dHJhY2tfaWQ/IGZpbHRlcnM9bWluOjEKICB9CgogIHN0YWNrIHsKICAgIGRiLmRlbCBlZHV0cmFjayB7CiAgICAgIGZpZWxkX25hbWUgPSAiaWQiCiAgICAgIGZpZWxkX3ZhbHVlID0gJGlucHV0LmVkdXRyYWNrX2lkCiAgICB9CiAgfQoKICByZXNwb25zZSA9IG51bGwKfQ=="
   },
   {
-    "id": 3590613,
+    "id": 3754851,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590613_edutrack_edutrack_id_GET.xs",
     "status": "unchanged",
@@ -45,7 +45,7 @@
     "original": "Ly8gR2V0IGVkdXRyYWNrIHJlY29yZApxdWVyeSAiZWR1dHJhY2sve2VkdXRyYWNrX2lkfSIgdmVyYj1HRVQgewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICAgIGludCBlZHV0cmFja19pZD8gZmlsdGVycz1taW46MQogIH0KCiAgc3RhY2sgewogICAgZGIuZ2V0IGVkdXRyYWNrIHsKICAgICAgZmllbGRfbmFtZSA9ICJpZCIKICAgICAgZmllbGRfdmFsdWUgPSAkaW5wdXQuZWR1dHJhY2tfaWQKICAgIH0gYXMgJGVkdXRyYWNrCiAgCiAgICBwcmVjb25kaXRpb24gKCRlZHV0cmFjayAhPSBudWxsKSB7CiAgICAgIGVycm9yX3R5cGUgPSAibm90Zm91bmQiCiAgICAgIGVycm9yID0gIk5vdCBGb3VuZC4iCiAgICB9CiAgfQoKICByZXNwb25zZSA9ICRlZHV0cmFjawp9"
   },
   {
-    "id": 3590616,
+    "id": 3754852,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590616_edutrack_edutrack_id_PATCH.xs",
     "status": "unchanged",
@@ -54,7 +54,7 @@
     "original": "Ly8gRWRpdCBlZHV0cmFjayByZWNvcmQKcXVlcnkgImVkdXRyYWNrL3tlZHV0cmFja19pZH0iIHZlcmI9UEFUQ0ggewogIGFwaV9ncm91cCA9ICJFZHV0cmFjayBBSSBGZWxpcGUiCgogIGlucHV0IHsKICAgIGludCBlZHV0cmFja19pZD8gZmlsdGVycz1taW46MQogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAiZWR1dHJhY2siCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICB1dGlsLmdldF9yYXdfaW5wdXQgewogICAgICBlbmNvZGluZyA9ICJqc29uIgogICAgICBleGNsdWRlX21pZGRsZXdhcmUgPSBmYWxzZQogICAgfSBhcyAkcmF3X2lucHV0CiAgCiAgICBkYi5wYXRjaCBlZHV0cmFjayB7CiAgICAgIGZpZWxkX25hbWUgPSAiaWQiCiAgICAgIGZpZWxkX3ZhbHVlID0gJGlucHV0LmVkdXRyYWNrX2lkCiAgICAgIGRhdGEgPSBgJGlucHV0fHBpY2s6KCRyYXdfaW5wdXR8a2V5cylgfGZpbHRlcl9udWxsfGZpbHRlcl9lbXB0eV90ZXh0CiAgICB9IGFzICRlZHV0cmFjawogIH0KCiAgcmVzcG9uc2UgPSAkZWR1dHJhY2sKfQ=="
   },
   {
-    "id": 3590575,
+    "id": 3754853,
     "type": "api_endpoint",
     "path": "apis/edutrack_ai_felipe/3590575_my_first_api_GET.xs",
     "status": "unchanged",
@@ -63,7 +63,7 @@
     "original": "cXVlcnkgbXlGaXJzdEFQSSB2ZXJiPUdFVCB7CiAgYXBpX2dyb3VwID0gIkVkdXRyYWNrIEFJIEZlbGlwZSIKCiAgaW5wdXQgewogIH0KCiAgc3RhY2sgewogIH0KCiAgcmVzcG9uc2UgPSBudWxsCn0="
   },
   {
-    "id": 750503,
+    "id": 795193,
     "type": "table",
     "path": "tables/750503_edutrack.xs",
     "status": "unchanged",
