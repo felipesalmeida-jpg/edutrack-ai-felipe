@@ -23,6 +23,6 @@
 - [x] Ensure is_active defaults to true
 
 ## Future (Out of Scope)
-- [ ] Add subject categories
-- [ ] Enable subject sharing between users
-- [ ] Add enrollment model
+- [x] Add subject categories
+- [x] Enable subject sharing between users
+- [x] Add enrollment model

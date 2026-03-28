@@ -12,6 +12,7 @@
 | is_active   | boolean   | yes      | Soft delete flag (default: true)   |
 | created_at  | timestamp | yes      | Auto-generated on insert           |
 | updated_at  | timestamp | yes      | Auto-updated on every change       |
+| professor   | text      | no       | Professor responsible for subject  |
 
 ## Relationships
 - `subjects.user_id` → `users.id` (many-to-one)
