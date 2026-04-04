@@ -9,7 +9,7 @@ st.set_page_config(page_title="EduTrack AI", page_icon="🎓")
 st.title("🎓 EduTrack AI")
 
 # Configurações da API Xano
-XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:seu_api_group")
+XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
 
 # Inicializa o estado de autenticação na sessão
 if "auth_token" not in st.session_state:
