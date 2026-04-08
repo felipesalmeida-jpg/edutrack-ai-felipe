@@ -1,0 +1,15 @@
+// Query all subjects records
+query subjects verb=GET {
+  api_group = "Authentication"
+
+  input {
+  }
+
+  stack {
+    db.query subjects {
+      return = {type: "list"}
+    } as $model
+  }
+
+  response = $model
+}

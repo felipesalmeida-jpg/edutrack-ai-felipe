@@ -4,6 +4,9 @@ table edutrack {
   schema {
     int id
     timestamp created_at?=now
+    int user_id? {
+      table = "user"
+    }
   }
 
   index = [
