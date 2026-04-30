@@ -1,16 +1,15 @@
-// Query all subjects records filtered by authenticated user
+// Query all subjects records
 query subjects verb=GET {
   api_group = "Authentication"
-  auth = true
+
   input {
   }
+
   stack {
     db.query subjects {
       return = {type: "list"}
-      where {
-        user_id == .id
-      }
-    } as 
+    } as $subjects
   }
-  response = 
+
+  response = $subjects
 }

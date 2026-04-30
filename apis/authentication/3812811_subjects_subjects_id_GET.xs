@@ -1,18 +1,22 @@
-// Get a single subject for the authenticated user
-query subjects verb=GET {
+// Get subjects record
+query "subjects/{subjects_id}" verb=GET {
   api_group = "Authentication"
-  auth = true
+
   input {
-    int id
+    int subjects_id? filters=min:1
   }
+
   stack {
-    db.query subjects {
-      return = {type: "first"}
-      where {
-        id == .id
-        user_id == .id
-      }
-    } as 
+    db.get subjects {
+      field_name = "id"
+      field_value = $input.subjects_id
+    } as $subjects
+  
+    precondition ($subjects != null) {
+      error_type = "notfound"
+      error = "Not Found."
+    }
   }
-  response = 
+
+  response = $subjects
 }
