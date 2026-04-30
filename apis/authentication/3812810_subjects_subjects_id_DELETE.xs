@@ -1,17 +1,17 @@
-// Delete a subject for the authenticated user
-query subjects verb=DELETE {
+// Delete subjects record.
+query "subjects/{subjects_id}" verb=DELETE {
   api_group = "Authentication"
-  auth = true
+
   input {
-    int id
+    int subjects_id? filters=min:1
   }
+
   stack {
-    db.delete subjects {
-      where {
-        id == .id
-        user_id == .id
-      }
+    db.del subjects {
+      field_name = "id"
+      field_value = $input.subjects_id
     }
   }
-  response = {deleted: true}
+
+  response = null
 }
