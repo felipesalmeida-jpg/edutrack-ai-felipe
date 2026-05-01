@@ -353,20 +353,20 @@
   {
     "id": 820216,
     "path": "tables/academic_tasks.xs",
-    "status": "changed",
+    "status": "unchanged",
     "type": "table",
     "staged": false,
-    "original": "dGFibGUgYWNhZGVtaWNfdGFza3MgewogIGF1dGggPSBmYWxzZQoKICBzY2hlbWEgewogICAgaW50IGlkCiAgICB0aW1lc3RhbXAgY3JlYXRlZF9hdD89bm93IHsKICAgICAgdmlzaWJpbGl0eSA9ICJwcml2YXRlIgogICAgfQogIAogICAgLy8gVGl0bGUgb2YgdGhlIGFjYWRlbWljIHRhc2sKICAgIHRleHQgdGl0bGU/IGZpbHRlcnM9dHJpbQogIAogICAgLy8gRGVzY3JpcHRpb24gb2YgdGhlIHRhc2sKICAgIHRleHQgZGVzY3JpcHRpb24/IGZpbHRlcnM9dHJpbQogIAogICAgLy8gRHVlIGRhdGUgZm9yIHRoZSB0YXNrCiAgICB0aW1lc3RhbXAgZHVlX2RhdGU/CiAgCiAgICAvLyBTdGF0dXMgb2YgdGhlIHRhc2sKICAgIHRleHQgc3RhdHVzPz1wZW5kaW5nCiAgCiAgICAvLyBSZWZlcmVuY2UgdG8gdGhlIHN1YmplY3QKICAgIGludCBzdWJqZWN0X2lkPyB7CiAgICAgIHRhYmxlID0gInN1YmplY3RzIgogICAgfQogIH0KCiAgaW5kZXggPSBbe3R5cGU6ICJwcmltYXJ5IiwgZmllbGQ6IFt7bmFtZTogImlkIn1dfV0KfQ==",
-    "sha256": "11d32f03f87b3edef0dd858181c651090924e62da4ea9aa8a95315deca58a315"
+    "original": "dGFibGUgYWNhZGVtaWNfdGFza3MgewogIGF1dGggPSBmYWxzZQoKICBzY2hlbWEgewogICAgaW50IGlkCiAgICB0aW1lc3RhbXAgY3JlYXRlZF9hdD89bm93IHsKICAgICAgdmlzaWJpbGl0eSA9ICJwcml2YXRlIgogICAgfQogIAogICAgdGV4dCB0aXRsZT8gZmlsdGVycz10cmltCiAgICB0ZXh0IGRlc2NyaXB0aW9uPyBmaWx0ZXJzPXRyaW0KICAgIHRpbWVzdGFtcCBkdWVfZGF0ZT8KICAgIHRleHQgc3RhdHVzPz1wZW5kaW5nCiAgICBpbnQgc3ViamVjdF9pZD8gewogICAgICB0YWJsZSA9ICJzdWJqZWN0cyIKICAgIH0KICB9CgogIGluZGV4ID0gW3t0eXBlOiAicHJpbWFyeSIsIGZpZWxkOiBbe25hbWU6ICJpZCJ9XX1dCn0=",
+    "sha256": "00d96a9e6eff419a307f07cd06ed4f574de94a9182c3db15121c6e06a1f0f791"
   },
   {
     "id": 3867067,
     "path": "apis/authentication/subjects_search_GET.xs",
-    "status": "changed",
+    "status": "unchanged",
     "type": "api_endpoint",
     "staged": false,
-    "sha256": "05cdbe45627abe3ad5771dc9f4e827f6eea26aa6a3890561fe18e5251cbebe86",
-    "original": "Ly8gU2VhcmNoIHN1YmplY3RzIGJ5IG5hbWUgZm9yIHRoZSBhdXRoZW50aWNhdGVkIHVzZXIKcXVlcnkgc3ViamVjdHNfc2VhcmNoIHZlcmI9R0VUIHsKICBhcGlfZ3JvdXAgPSAiQXV0aGVudGljYXRpb24iCiAgYXV0aCA9ICJ1c2VyIgoKICBpbnB1dCB7CiAgICB0ZXh0IHNlYXJjaAogIH0KCiAgc3RhY2sgewogICAgZGIucXVlcnkgc3ViamVjdHMgewogICAgICB3aGVyZSA9ICRkYi5zdWJqZWN0cy51c2VyX2lkID09ICRhdXRoLmlkICYmICRkYi5zdWJqZWN0cy5uYW1lIGluY2x1ZGVzICRpbnB1dC5zZWFyY2gKICAgICAgcmV0dXJuID0ge3R5cGU6ICJsaXN0In0KICAgIH0gYXMgJG1vZGVsCiAgfQoKICByZXNwb25zZSA9ICRtb2RlbAp9"
+    "sha256": "15d90875cbccc028a655dab176a992f3c1d0b51a7307e14f637fb61b813d7116",
+    "original": "Ly8gU2VhcmNoIHN1YmplY3RzIGJ5IG5hbWUgZm9yIHRoZSBhdXRoZW50aWNhdGVkIHVzZXIKcXVlcnkgc3ViamVjdHNfc2VhcmNoIHZlcmI9R0VUIHsKICBhcGlfZ3JvdXAgPSAiQXV0aGVudGljYXRpb24iCiAgYXV0aCA9ICJ1c2VyIgoKICBpbnB1dCB7CiAgICB0ZXh0IHNlYXJjaAogIH0KCiAgc3RhY2sgewogICAgLy8gUmVncmEgZGUgT3VybzogR2FyYW50ZSBxdWUgYSBidXNjYSBzw7MgcmV0b3JuZSBkYWRvcyBkbyB1c3XDoXJpbyBsb2dhZG8KICAgIGRiLnF1ZXJ5IHN1YmplY3RzIHsKICAgICAgd2hlcmUgPSAidXNlcl9pZCA9ICR7YXV0aC5pZH0gQU5EIG5hbWUgTElLRSAlJHtpbnB1dC5zZWFyY2h9JSIgPT0gdHJ1ZQogICAgICByZXR1cm4gPSB7dHlwZTogImxpc3QifQogICAgfSBhcyAkbW9kZWwKICB9CgogIHJlc3BvbnNlID0gJG1vZGVsCn0="
   },
   {
     "id": 3848419,
@@ -408,8 +408,8 @@
     "id": 3812811,
     "type": "api_endpoint",
     "path": "apis/authentication/3812811_subjects_subjects_id_GET.xs",
-    "status": "unchanged",
-    "staged": false,
+    "status": "changed",
+    "staged": true,
     "sha256": "10a321cd75cc8adf731099fba7e8314422214596899105a0438e86e11612dec6",
     "original": "Ly8gR2V0IHN1YmplY3RzIHJlY29yZApxdWVyeSAic3ViamVjdHMve3N1YmplY3RzX2lkfSIgdmVyYj1HRVQgewogIGFwaV9ncm91cCA9ICJBdXRoZW50aWNhdGlvbiIKCiAgaW5wdXQgewogICAgaW50IHN1YmplY3RzX2lkPyBmaWx0ZXJzPW1pbjoxCiAgfQoKICBzdGFjayB7CiAgICBkYi5nZXQgc3ViamVjdHMgewogICAgICBmaWVsZF9uYW1lID0gImlkIgogICAgICBmaWVsZF92YWx1ZSA9ICRpbnB1dC5zdWJqZWN0c19pZAogICAgfSBhcyAkc3ViamVjdHMKICAKICAgIHByZWNvbmRpdGlvbiAoJHN1YmplY3RzICE9IG51bGwpIHsKICAgICAgZXJyb3JfdHlwZSA9ICJub3Rmb3VuZCIKICAgICAgZXJyb3IgPSAiTm90IEZvdW5kLiIKICAgIH0KICB9CgogIHJlc3BvbnNlID0gJHN1YmplY3RzCn0="
   },

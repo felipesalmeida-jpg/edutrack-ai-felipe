@@ -2,15 +2,15 @@
 
 ## Why
 O frontend (Streamlit) precisa consumir dados de disciplinas de forma segura,
-garantindo que cada usuário acesse apenas seus próprios dados.
+garantindo que cada usuï¿½rio acesse apenas seus prï¿½prios dados.
 
 ## What Changes
-- Criação dos endpoints CRUD para a tabela subjects:
+- Criaï¿½ï¿½o dos endpoints CRUD para a tabela subjects:
   - POST /subjects - criar disciplina
-  - GET /subjects - listar disciplinas do usuário
+  - GET /subjects - listar disciplinas do usuï¿½rio
   - PATCH /subjects/{id} - atualizar disciplina
   - DELETE /subjects/{id} - deletar disciplina
 
 ## Impact
 - Backend: novos endpoints no Xano com filtro por user_id
-- Frontend: poderá consumir as APIs de disciplinas
+- Frontend: poderï¿½ consumir as APIs de disciplinas

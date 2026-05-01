@@ -1,4 +1,4 @@
-# subjects Specification
+# api-crud-subjects Specification
 
 ## Purpose
 Define the CRUD API endpoints for managing academic subjects in EduTrack AI,
