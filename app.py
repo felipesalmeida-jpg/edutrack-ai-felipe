@@ -11,76 +11,68 @@ st.title("🎓 EduTrack AI")
 # Configurações da API Xano
 XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
 
-# Inicializa o estado de autenticação na sessão
+# Inicializa o estado de autenticação SEMPRE vazio para obrigar o login manual
 if "auth_token" not in st.session_state:
-    st.session_state.auth_token = os.getenv("XANO_AUTH_TOKEN", "")
+    st.session_state.auth_token = ""
 
-# Fluxo de Login
+# ---------------------------------------------------------
+# FLUXO 1: TELA DE LOGIN (Bloqueia o acesso sem autenticação)
+# ---------------------------------------------------------
 if not st.session_state.auth_token:
-    st.subheader("🔑 Login")
-    st.write("Por favor, acesse com suas credenciais para gerenciar suas disciplinas.")
+    
+    # TRUQUE DE CSS: Esconde a barra lateral apenas na tela de login
+    st.markdown(
+        """
+        <style>
+            [data-testid="collapsedControl"] {display: none;}
+            [data-testid="stSidebar"] {display: none;}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.subheader("🔑 Acesso Restrito")
+    st.write("Faça login com sua conta acadêmica para acessar o painel.")
     
     with st.form("login_form"):
+        # Campos de texto vazios exigindo digitação manual
         email = st.text_input("E-mail")
         password = st.text_input("Senha", type="password")
-        submit_btn = st.form_submit_button("Entrar")
+        
+        submit_btn = st.form_submit_button("Entrar no Sistema")
         
         if submit_btn:
             try:
-                # Utilizamos a rota padrão de auth do Xano
+                # Validação no Backend Xano
                 auth_url = f"{XANO_BASE_URL}/auth/login"
                 response = requests.post(auth_url, json={"email": email, "password": password})
                 
                 if response.status_code == 200:
                     st.session_state.auth_token = response.json().get("authToken")
-                    st.success("Login realizado com sucesso!")
-                    st.rerun()
+                    st.success("Login realizado com sucesso! Carregando...")
+                    st.rerun() # Recarrega a página para liberar o Dashboard
                 else:
-                    st.error("Credenciais inválidas. Verifique seu e-mail e senha.")
+                    st.error("Acesso Negado. E-mail ou senha incorretos.")
             except Exception as e:
-                st.error(f"Erro ao conectar com a API: {e}")
+                st.error(f"Erro ao conectar com o servidor: {e}")
 
-# Fluxo da Aplicação Autenticada
+# ---------------------------------------------------------
+# FLUXO 2: APLICAÇÃO AUTENTICADA (Só aparece após o login)
+# ---------------------------------------------------------
 else:
-    # Sidebar (Menu Lateral)
-    st.sidebar.header("Menu")
-    menu_option = st.sidebar.radio("Navegar", ["Dashboard", "Disciplinas", "Tarefas"])
+    # Sidebar - Botão de Logout
+    # Como não tem o CSS escondendo aqui, a barra lateral aparece normalmente!
+    st.sidebar.header("Painel de Controle")
     
     if st.sidebar.button("Sair (Logout)"):
         st.session_state.auth_token = ""
-        st.rerun()
+        st.rerun() # Limpa o token e volta imediatamente para a tela de login vazia
 
-    # Conteúdo Dinâmico
-    if menu_option == "Dashboard":
-        st.write("Bem-vindo ao seu assistente acadêmico!")
-        st.info("Conecte ao Xano para ver seus dados reais.")
-        
-        # Exemplo de Métrica Visual
-        col1, col2 = st.columns(2)
-        col1.metric("Disciplinas Ativas", "0")
-        col2.metric("Tarefas Pendentes", "0")
-
-    elif menu_option == "Disciplinas":
-        st.subheader("📚 Minhas Disciplinas")
-        
-        headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
-        try:
-            response = requests.get(f"{XANO_BASE_URL}/subjects", headers=headers)
-            
-            if response.status_code == 200:
-                subjects = response.json()
-                if not subjects:
-                    st.info("Você ainda não tem disciplinas cadastradas.")
-                for subject in subjects:
-                    with st.container(border=True):
-                        st.markdown(f"#### {subject.get('name')} ({subject.get('semester', 'N/A')})")
-                        st.write(f"**Descrição:** {subject.get('description', 'Sem descrição')}")
-                        st.write(f"**Status:** {subject.get('status')} | **Créditos:** {subject.get('credits')}")
-            else:
-                st.error(f"Erro na API: {response.status_code} - {response.text}")
-        except Exception as e:
-            st.error(f"Erro de conexão com o backend: {e}")
-
-    elif menu_option == "Tarefas":
-        st.subheader("Gerenciamento de Tarefas")
-        st.info("Módulo em construção. Em breve você poderá adicionar tarefas relacionadas às disciplinas!")
+    # Dashboard Principal
+    st.write("👋 Bem-vindo ao seu assistente acadêmico!")
+    st.info("Utilize o menu lateral para navegar entre suas Disciplinas e Tarefas.")
+    
+    # Métricas Visuais de Resumo
+    col1, col2 = st.columns(2)
+    col1.metric("Disciplinas Ativas", "0")
+    col2.metric("Tarefas Pendentes", "0")
