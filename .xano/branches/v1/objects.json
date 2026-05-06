@@ -417,7 +417,7 @@
     "id": 3812813,
     "type": "api_endpoint",
     "path": "apis/authentication/3812813_subjects_POST.xs",
-    "status": "unchanged",
+    "status": "changed",
     "staged": false,
     "sha256": "ac73695daa0f8245ce6072e4e4ed5550ddaacb3831a23e896dc9dc3553bd5db2",
     "original": "Ly8gQWRkIHN1YmplY3RzIHJlY29yZApxdWVyeSBzdWJqZWN0cyB2ZXJiPVBPU1QgewogIGFwaV9ncm91cCA9ICJBdXRoZW50aWNhdGlvbiIKCiAgaW5wdXQgewogICAgZGJsaW5rIHsKICAgICAgdGFibGUgPSAic3ViamVjdHMiCiAgICB9CiAgfQoKICBzdGFjayB7CiAgICBkYi5hZGQgc3ViamVjdHMgewogICAgICBkYXRhID0ge2NyZWF0ZWRfYXQ6ICJub3cifQogICAgfSBhcyAkc3ViamVjdHMKICB9CgogIHJlc3BvbnNlID0gJHN1YmplY3RzCn0="
@@ -426,7 +426,7 @@
     "id": 810916,
     "type": "table",
     "path": "tables/810916_subjects.xs",
-    "status": "unchanged",
+    "status": "changed",
     "staged": false,
     "sha256": "e04cda447dfd0fd837af64c24c37a55618424b7fb89d1fb35c15385248267874",
     "original": "dGFibGUgc3ViamVjdHMgewogIGF1dGggPSBmYWxzZQoKICBzY2hlbWEgewogICAgaW50IGlkCiAgICB0aW1lc3RhbXAgY3JlYXRlZF9hdD89bm93IHsKICAgICAgdmlzaWJpbGl0eSA9ICJwcml2YXRlIgogICAgfQogIAogICAgaW50IHVzZXJfaWQ/IHsKICAgICAgdGFibGUgPSAidXNlciIKICAgIH0KICAKICAgIHRleHQgbmFtZT8gZmlsdGVycz10cmltCiAgfQoKICBpbmRleCA9IFsKICAgIHt0eXBlOiAicHJpbWFyeSIsIGZpZWxkOiBbe25hbWU6ICJpZCJ9XX0KICAgIHt0eXBlOiAiYnRyZWUiLCBmaWVsZDogW3tuYW1lOiAiY3JlYXRlZF9hdCIsIG9wOiAiZGVzYyJ9XX0KICBdCn0="

@@ -1,4 +1,6 @@
 import streamlit as st
+import requests
+import os
 
 # ---------------------------------------------------------
 # TRAVA DE SEGURANÇA
@@ -12,19 +14,99 @@ if "auth_token" not in st.session_state or not st.session_state.auth_token:
 # ---------------------------------------------------------
 st.title("📚 Minha Grade e Horários")
 
+# Configurações da API Xano
+XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
+
 # ---------------------------------------------------------
-# DADOS
+# FORMULÁRIO DE CRIAÇÃO DE DISCIPLINA
 # ---------------------------------------------------------
-grade_horaria = [
-    {"dia": "Segunda", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "SQL Fundamentals", "prof": "Evandro Victor Rocha Deliberal", "sala": "Lab 202 Paraíso"},
-    {"dia": "Segunda", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Software Engineering", "prof": "Mariana Moralles Rizzo", "sala": "108 Paraíso"},
-    {"dia": "Terça", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Database Design", "prof": "João Roberto Peres Ortega", "sala": "207 Paraíso"},
-    {"dia": "Terça", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Programming & Algorithms", "prof": "Odair Gabriel da Silva", "sala": "207 Paraíso"},
-    {"dia": "Quarta", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Innovation Lab: Advanced No/Low Code", "prof": "Leonardo Bontempo", "sala": "Lab 203 Paraíso"},
-    {"dia": "Quarta", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Database Design", "prof": "João Roberto Peres Ortega", "sala": "207 Paraíso"},
-    {"dia": "Quinta", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Programming & Algorithms", "prof": "Odair Gabriel da Silva", "sala": "Lab 201 Paraíso"},
-    {"dia": "Quinta", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "SQL Fundamentals", "prof": "Evandro Victor Rocha Deliberal", "sala": "Lab 202 Paraíso"},
-]
+with st.expander("➕ Adicionar Nova Disciplina", expanded=False):
+    st.markdown("Preencha os campos abaixo para criar uma nova disciplina:")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        nome_disciplina = st.text_input("Nome da Disciplina", placeholder="Ex: Python Avançado")
+    
+    with col2:
+        professor = st.text_input("Professor(a)", placeholder="Ex: João Silva")
+    
+    with col3:
+        dias_semana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
+        dia_selecionado = st.selectbox("Dia da Semana", dias_semana)
+    
+    if st.button("✅ Criar Disciplina", type="primary"):
+        if nome_disciplina and professor and dia_selecionado:
+            try:
+                # Chamada à API POST do Xano
+                api_url = f"{XANO_BASE_URL}/subjects"
+                headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
+                payload = {
+                    "name": nome_disciplina,
+                    "professor": professor,
+                    "day_of_week": dia_selecionado
+                }
+                
+                response = requests.post(api_url, json=payload, headers=headers)
+                
+                if response.status_code == 200:
+                    st.success(f"✅ Disciplina '{nome_disciplina}' criada com sucesso!")
+                    st.balloons()
+                    st.rerun()
+                else:
+                    st.error(f"❌ Erro ao criar disciplina: {response.json()}")
+            except Exception as e:
+                st.error(f"❌ Erro na conexão: {e}")
+        else:
+            st.warning("⚠️ Preencha todos os campos para criar uma disciplina.")
+
+st.markdown("---")
+
+# ---------------------------------------------------------
+# BUSCAR DISCIPLINAS DO XANO
+# ---------------------------------------------------------
+@st.cache_data(ttl=60)
+def buscar_disciplinas():
+    try:
+        api_url = f"{XANO_BASE_URL}/subjects"
+        headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
+        response = requests.get(api_url, headers=headers)
+        
+        if response.status_code == 200:
+            disciplinas = response.json()
+            if isinstance(disciplinas, list):
+                return disciplinas
+    except:
+        pass
+    return []
+
+# Buscar disciplinas criadas pelo usuário
+disciplinas_usuario = buscar_disciplinas()
+
+# Se não houver disciplinas do usuário, usar dados estáticos
+if not disciplinas_usuario:
+    grade_horaria = [
+        {"dia": "Segunda", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "SQL Fundamentals", "prof": "Evandro Victor Rocha Deliberal", "sala": "Lab 202 Paraíso"},
+        {"dia": "Segunda", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Software Engineering", "prof": "Mariana Moralles Rizzo", "sala": "108 Paraíso"},
+        {"dia": "Terça", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Database Design", "prof": "João Roberto Peres Ortega", "sala": "207 Paraíso"},
+        {"dia": "Terça", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Programming & Algorithms", "prof": "Odair Gabriel da Silva", "sala": "207 Paraíso"},
+        {"dia": "Quarta", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Innovation Lab: Advanced No/Low Code", "prof": "Leonardo Bontempo", "sala": "Lab 203 Paraíso"},
+        {"dia": "Quarta", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "Database Design", "prof": "João Roberto Peres Ortega", "sala": "207 Paraíso"},
+        {"dia": "Quinta", "horario": "19h às 20h40 (Aula 1 e 2)", "disciplina": "Programming & Algorithms", "prof": "Odair Gabriel da Silva", "sala": "Lab 201 Paraíso"},
+        {"dia": "Quinta", "horario": "21h às 22h40 (Aula 3 e 4)", "disciplina": "SQL Fundamentals", "prof": "Evandro Victor Rocha Deliberal", "sala": "Lab 202 Paraíso"},
+    ]
+else:
+    # Converter disciplinas do Xano para o formato da página
+    grade_horaria = []
+    for disc in disciplinas_usuario:
+        grade_horaria.append({
+            "id": disc.get("id"),
+            "dia": disc.get("day_of_week", "N/A"),
+            "horario": "A definir",
+            "disciplina": disc.get("name", "Sem nome"),
+            "prof": disc.get("professor", "N/A"),
+            "sala": "N/A"
+        })
 
 # Banco de tarefas geral com a chave "disciplina" para o sistema filtrar sozinho
 disc_inno = "Innovation Lab: Advanced No/Low Code"
@@ -47,7 +129,8 @@ tarefas_gerais = [
 ]
 
 # ---------------------------------------------------------
-# FILTROS
+# DADOS
+# ---------------------------------------------------------
 # ---------------------------------------------------------
 col1, col2 = st.columns(2)
 
@@ -61,6 +144,24 @@ with col2:
 st.markdown("---")
 
 # ---------------------------------------------------------
+# FUNÇÃO DE DELETAR DISCIPLINA
+# ---------------------------------------------------------
+def deletar_disciplina(disciplina_id):
+    try:
+        api_url = f"{XANO_BASE_URL}/subjects/{disciplina_id}"
+        headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
+        response = requests.delete(api_url, headers=headers)
+        
+        if response.status_code == 200:
+            st.success(f"✅ Disciplina deletada com sucesso!")
+            st.session_state.clear()
+            st.rerun()
+        else:
+            st.error(f"❌ Erro ao deletar disciplina: {response.status_code}")
+    except Exception as e:
+        st.error(f"❌ Erro na conexão: {e}")
+
+# ---------------------------------------------------------
 # 1. RENDERIZA OS HORÁRIOS DA MATÉRIA
 # ---------------------------------------------------------
 for aula in grade_horaria:
@@ -70,10 +171,19 @@ for aula in grade_horaria:
         continue
 
     with st.container():
-        st.subheader(f"📅 {aula['dia']} | ⏰ {aula['horario']}")
-        st.markdown(f"**📖 Disciplina:** {aula['disciplina']}")
-        st.markdown(f"**👨‍🏫 Prof(a):** {aula['prof']}")
-        st.markdown(f"**📍 Sala:** {aula['sala']}")
+        col1, col2 = st.columns([4, 1])
+        
+        with col1:
+            st.subheader(f"📅 {aula['dia']} | ⏰ {aula['horario']}")
+            st.markdown(f"**📖 Disciplina:** {aula['disciplina']}")
+            st.markdown(f"**👨‍🏫 Prof(a):** {aula['prof']}")
+            st.markdown(f"**📍 Sala:** {aula['sala']}")
+        
+        with col2:
+            if "id" in aula and aula["id"]:
+                if st.button("🗑️ Deletar", key=f"delete_{aula['id']}"):
+                    deletar_disciplina(aula["id"])
+        
         st.markdown("---")
 
 # ---------------------------------------------------------
