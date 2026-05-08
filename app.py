@@ -87,10 +87,12 @@ else:
         st.rerun()
         
     # Apontando para a nova pasta 'telas'
-    dashboard = st.Page("telas/01_📚_Disciplinas.py", title="Disciplinas", icon="📚")
+    dashboard = st.Page("telas/00_📊_Dashboard.py", title="Dashboard", icon="📊")
+    disciplinas = st.Page("telas/01_📚_Disciplinas.py", title="Disciplinas", icon="📚")
     tarefas = st.Page("telas/02_📝_Tarefas.py", title="Tarefas", icon="📝")
+    relatorios = st.Page("telas/03_📊_Relatórios.py", title="Relatórios", icon="📊")
     perfil = st.Page("telas/03_👤_Perfil.py", title="Perfil", icon="👤")
     
     # Executa a navegação completa
-    pg = st.navigation([dashboard, tarefas, perfil])
+    pg = st.navigation([dashboard, disciplinas, tarefas, relatorios, perfil])
     pg.run()

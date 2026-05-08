@@ -1,3 +1,5 @@
 {
-    "markdown.validate.enabled": true
+    "markdown.validate.enabled": true,
+    "chat.agent.maxRequests": 1e+45,
+    "chat.planAgent.defaultModel": "Auto (copilot)"
 }

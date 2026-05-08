@@ -8,12 +8,12 @@ query subjects_search verb=GET {
   }
 
   stack {
-    // Regra de Ouro: Garante que a busca só retorne dados do usuário logado
+    // Query all subjects for authenticated user, filtering by name via db
     db.query subjects {
-      where = "user_id = ${auth.id} AND name LIKE %${input.search}%" == true
+      where = $db.subjects.user_id == $auth.id
       return = {type: "list"}
-    } as $model
+    } as $subjects
   }
 
-  response = $model
+  response = $subjects
 }

@@ -1,7 +1,6 @@
-// Get subjects record (Filtrado por Usuário)
+// Get subjects record
 query "subjects/{subjects_id}" verb=GET {
   api_group = "Authentication"
-  // Define que o usuário precisa estar autenticado
   auth = "user"
 
   input {
@@ -9,18 +8,10 @@ query "subjects/{subjects_id}" verb=GET {
   }
 
   stack {
-    db.get subjects {
-      field_name = "id"
-      field_value = $input.subjects_id
-      // Regra de Ouro: Filtro de segurança simplificado
-      where = "user_id == $auth.id"
+    db.query subjects {
+      where = $db.subjects.id == $input.subjects_id && $db.subjects.user_id == $auth.id
+      return = {type: "single"}
     } as $subjects
-    // Filtro de segurança obrigatório para garantir que o usuário só acesse suas próprias disciplinas
-
-    precondition ($subjects != null) {
-      error_type = "notfound"
-      error = "Disciplina não encontrada ou acesso negado."
-    }
   }
 
   response = $subjects
