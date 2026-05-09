@@ -2,6 +2,10 @@ import streamlit as st
 import requests
 import os
 
+# Persistir token entre reruns
+if "auth_token" not in st.session_state:
+    st.session_state.auth_token = st.query_params.get("token", "")
+
 # 1. Configuração da Página
 st.set_page_config(page_title="EduTrack AI", page_icon="🎓")
 
@@ -62,10 +66,12 @@ def tela_login():
                 print(f"[DEBUG] Resposta completa: {response.json()}")
                 
                 if response.status_code == 200:
-                    st.session_state.auth_token = response.json().get("authToken")
-                    st.session_state.current_page = "dashboard"  # Define a página inicial como dashboard
-                    st.success("Login realizado com sucesso! Carregando...")
-                    st.rerun()
+                     token = response.json().get("authToken")
+                     st.session_state.auth_token = token
+                     st.query_params["token"] = token  # persiste na URL
+                     st.session_state.current_page = "dashboard"
+                     st.success("Login realizado com sucesso! Carregando...")
+                     st.rerun()
                 else:
                     st.error("Acesso Negado. E-mail ou senha incorretos.")
             except Exception as e:

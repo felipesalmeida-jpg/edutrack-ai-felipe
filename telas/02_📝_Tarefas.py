@@ -18,7 +18,7 @@ XANO_TASKS_BASE_URL = os.getenv("XANO_TASKS_BASE_URL", "https://x8ki-letl-twmt.n
 # ---------------------------------------------------------
 # FUNÇÕES DE API - CRUD COMPLETO PARA TAREFAS
 # ---------------------------------------------------------
-@st.cache_data(ttl=300)  # Cache por 5 minutos
+
 def buscar_tarefas():
     """Busca todas as tarefas do Xano"""
     try:
@@ -34,7 +34,6 @@ def buscar_tarefas():
         st.error(f"Erro ao buscar tarefas: {e}")
     return []
 
-@st.cache_data(ttl=300)  # Cache por 5 minutos
 def buscar_disciplinas():
     """Busca todas as disciplinas do Xano"""
     try:

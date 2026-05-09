@@ -333,8 +333,13 @@ with tab3:
                     "Professor": d.get("professor"),
                     "Dia": d.get("day_of_week"),
                     "Semestre": d.get("semester", "N/A"),
-                "Sala": d.get("room", "N/A"),
-                "Horário": d.get("schedule", "N/A"),
+                    "Sala": d.get("room", "N/A"),
+                    "Horário": d.get("schedule", "N/A"),
+                })
+            
+            df = pd.DataFrame(df_data)
+            st.dataframe(df, use_container_width=True)
+        else:
             st.info("Nenhuma disciplina encontrada com os filtros selecionados.")
     else:
         st.info("Nenhuma disciplina disponível. Crie uma na aba 'Criar Nova'.")

@@ -18,7 +18,7 @@ XANO_TASKS_BASE_URL = os.getenv("XANO_TASKS_BASE_URL", "https://x8ki-letl-twmt.n
 # ---------------------------------------------------------
 # FUNÇÕES DE API - REUTILIZANDO LÓGICA EXISTENTE
 # ---------------------------------------------------------
-@st.cache_data(ttl=300)
+
 def buscar_disciplinas():
     """Busca todas as disciplinas do usuário"""
     try:
@@ -31,7 +31,6 @@ def buscar_disciplinas():
         st.error(f"Erro ao buscar disciplinas: {e}")
     return []
 
-@st.cache_data(ttl=300)
 def buscar_tarefas():
     """Busca todas as tarefas do usuário"""
     try:
