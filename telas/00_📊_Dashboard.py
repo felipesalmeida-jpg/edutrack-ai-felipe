@@ -13,6 +13,7 @@ if "auth_token" not in st.session_state or not st.session_state.auth_token:
 
 # Configurações da API Xano
 XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
+XANO_TASKS_BASE_URL = os.getenv("XANO_TASKS_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:Y3YwWHda")
 
 # ---------------------------------------------------------
 # FUNÇÕES DE API - REUTILIZANDO LÓGICA EXISTENTE
@@ -34,11 +35,14 @@ def buscar_disciplinas():
 def buscar_tarefas():
     """Busca todas as tarefas do usuário"""
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         response = requests.get(api_url, headers=headers)
         if response.status_code == 200:
-            return response.json()
+            tarefas = response.json()
+            if isinstance(tarefas, dict) and "items" in tarefas:
+                return tarefas["items"]
+            return tarefas if isinstance(tarefas, list) else []
     except Exception as e:
         st.error(f"Erro ao buscar tarefas: {e}")
     return []
@@ -239,12 +243,12 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     if st.button("📝 Nova Tarefa", use_container_width=True, type="primary"):
-        st.switch_page("pages/02_📝_Tarefas.py")
+        st.switch_page("telas/02_📝_Tarefas.py")
 
 with col2:
     if st.button("📚 Gerenciar Disciplinas", use_container_width=True):
-        st.switch_page("pages/01_📚_Disciplinas.py")
+        st.switch_page("telas/01_📚_Disciplinas.py")
 
 with col3:
     if st.button("📊 Ver Relatórios", use_container_width=True):
-        st.switch_page("pages/03_📊_Relatórios.py")
+        st.switch_page("telas/03_📊_Relatórios.py")

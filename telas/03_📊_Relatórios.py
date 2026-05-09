@@ -14,6 +14,7 @@ if "auth_token" not in st.session_state or not st.session_state.auth_token:
 
 # Configurações da API Xano
 XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
+XANO_TASKS_BASE_URL = os.getenv("XANO_TASKS_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:Y3YwWHda")
 
 # ---------------------------------------------------------
 # FUNÇÕES DE API
@@ -31,10 +32,15 @@ def buscar_disciplinas():
 @st.cache_data(ttl=300)
 def buscar_tarefas():
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         response = requests.get(api_url, headers=headers)
-        return response.json() if response.status_code == 200 else []
+        if response.status_code == 200:
+            tarefas = response.json()
+            if isinstance(tarefas, dict) and "items" in tarefas:
+                return tarefas["items"]
+            return tarefas if isinstance(tarefas, list) else []
+        return []
     except:
         return []
 

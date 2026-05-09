@@ -12,6 +12,7 @@ import time
 
 # Configuração
 XANO_BASE_URL = "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti"
+XANO_TASKS_BASE_URL = "https://x8ki-letl-twmt.n7.xano.io/api:Y3YwWHda"
 AUTH_TOKEN = None
 
 # Cores para output
@@ -147,9 +148,10 @@ def criar_disciplinas():
 
 def criar_tarefa(titulo, descricao, subject_id, prazo, status="pending"):
     """Cria uma tarefa"""
+    time.sleep(3)
     try:
         response = requests.post(
-            f"{XANO_BASE_URL}/academic_tasks",
+            f"{XANO_TASKS_BASE_URL}/academic_tasks",
             json={
                 "title": titulo,
                 "description": descricao,
@@ -172,12 +174,15 @@ def listar_tarefas():
     """Lista todas as tarefas"""
     try:
         response = requests.get(
-            f"{XANO_BASE_URL}/academic_tasks",
+            f"{XANO_TASKS_BASE_URL}/academic_tasks",
             headers=get_headers()
         )
         
         if response.status_code == 200:
-            return response.json()
+            tarefas = response.json()
+            if isinstance(tarefas, dict) and "items" in tarefas:
+                return tarefas["items"]
+            return tarefas if isinstance(tarefas, list) else []
         else:
             return []
     except Exception as e:
@@ -195,8 +200,9 @@ def editar_tarefa(tarefa_id, titulo=None, status=None, descricao=None):
         if descricao:
             payload["description"] = descricao
         
+        time.sleep(3)
         response = requests.patch(
-            f"{XANO_BASE_URL}/academic_tasks/{tarefa_id}",
+            f"{XANO_TASKS_BASE_URL}/academic_tasks/{tarefa_id}",
             json=payload,
             headers=get_headers()
         )
@@ -211,8 +217,9 @@ def editar_tarefa(tarefa_id, titulo=None, status=None, descricao=None):
 def deletar_tarefa(tarefa_id):
     """Deleta uma tarefa"""
     try:
+        time.sleep(3)
         response = requests.delete(
-            f"{XANO_BASE_URL}/academic_tasks/{tarefa_id}",
+            f"{XANO_TASKS_BASE_URL}/academic_tasks/{tarefa_id}",
             headers=get_headers()
         )
         

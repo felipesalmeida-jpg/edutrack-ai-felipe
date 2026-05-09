@@ -10,7 +10,7 @@ query academic_tasks verb=GET {
   stack {
     db.query academic_tasks {
       where = $db.academic_tasks.user_id == $auth.id
-      return = {type: "list", paging: {page: $input.page, per_page: 30}}
+      return = {type: "list"}
     } as $academic_tasks_records
   }
 

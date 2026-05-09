@@ -13,11 +13,11 @@ query "academic_tasks/{academic_tasks_id}" verb=DELETE {
       where = $db.academic_tasks.id == $input.academic_tasks_id && $db.academic_tasks.user_id == $auth.id
       return = {type: "single"}
     } as $task_check
-    
+  
     precondition ($task_check.id != null) {
       error_type = "accessdenied"
     }
-    
+  
     db.del academic_tasks {
       field_name = "id"
       field_value = $input.academic_tasks_id

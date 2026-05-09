@@ -14,12 +14,18 @@ table subjects {
     text name? filters=trim
     text professor? filters=trim
     text day_of_week? filters=trim
-    text semester? filters=trim {
-      description = "Semestre/Período da disciplina (ex: 2024.1, 2024.2)"
-    }
-    text status?=active {
-      description = "Status da disciplina: active ou archived"
-    }
+  
+    // Semestre/Período da disciplina (ex: 2024.1, 2024.2)
+    text semester? filters=trim
+  
+    // Sala da disciplina (ex: Sala 101, Laboratório 2)
+    text room? filters=trim
+  
+    // Horário da disciplina (ex: 08:00-10:00, 14:00-16:00)
+    text schedule? filters=trim
+  
+    // Status da disciplina: active ou archived
+    text status?=active
   }
 
   index = [

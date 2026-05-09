@@ -13,6 +13,7 @@ if "auth_token" not in st.session_state or not st.session_state.auth_token:
 
 # Configurações da API Xano
 XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
+XANO_TASKS_BASE_URL = os.getenv("XANO_TASKS_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:Y3YwWHda")
 
 # ---------------------------------------------------------
 # FUNÇÕES DE API - CRUD COMPLETO PARA TAREFAS
@@ -21,11 +22,13 @@ XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/ap
 def buscar_tarefas():
     """Busca todas as tarefas do Xano"""
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         response = requests.get(api_url, headers=headers)
         if response.status_code == 200:
             tarefas = response.json()
+            if isinstance(tarefas, dict) and "items" in tarefas:
+                return tarefas["items"]
             return tarefas if isinstance(tarefas, list) else []
     except Exception as e:
         st.error(f"Erro ao buscar tarefas: {e}")
@@ -48,7 +51,7 @@ def buscar_disciplinas():
 def criar_tarefa(titulo, descricao, subject_id, due_date, status, prioridade="medium"):
     """Cria uma nova tarefa"""
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         payload = {
             "title": titulo,
@@ -66,7 +69,7 @@ def criar_tarefa(titulo, descricao, subject_id, due_date, status, prioridade="me
 def atualizar_tarefa(tarefa_id, titulo, descricao, subject_id, due_date, status, prioridade="medium"):
     """Atualiza uma tarefa existente"""
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks/{tarefa_id}"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks/{tarefa_id}"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         payload = {
             "title": titulo,
@@ -84,7 +87,7 @@ def atualizar_tarefa(tarefa_id, titulo, descricao, subject_id, due_date, status,
 def deletar_tarefa(tarefa_id):
     """Deleta uma tarefa"""
     try:
-        api_url = f"{XANO_BASE_URL}/academic_tasks/{tarefa_id}"
+        api_url = f"{XANO_TASKS_BASE_URL}/academic_tasks/{tarefa_id}"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
         response = requests.delete(api_url, headers=headers)
         return response.status_code == 200, None

@@ -4,13 +4,10 @@ query subjects verb=POST {
   auth = "user"
 
   input {
-    dblink {
-      table = "subjects"
-    }
-  
     text name
     text professor?
     text day_of_week?
+    text semester?
   }
 
   stack {
@@ -20,6 +17,7 @@ query subjects verb=POST {
         name       : $input.name
         professor  : $input.professor
         day_of_week: $input.day_of_week
+        semester   : $input.semester
         created_at : "now"
       }
     } as $subjects

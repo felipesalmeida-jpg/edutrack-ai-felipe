@@ -9,6 +9,10 @@ st.set_page_config(page_title="EduTrack AI", page_icon="🎓")
 if "auth_token" not in st.session_state:
     st.session_state.auth_token = ""
 
+# Inicializa a página atual
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "login"
+
 # Configurações da API Xano
 XANO_BASE_URL = os.getenv("XANO_BASE_URL", "https://x8ki-letl-twmt.n7.xano.io/api:7jKAuXti")
 
@@ -59,6 +63,7 @@ def tela_login():
                 
                 if response.status_code == 200:
                     st.session_state.auth_token = response.json().get("authToken")
+                    st.session_state.current_page = "dashboard"  # Define a página inicial como dashboard
                     st.success("Login realizado com sucesso! Carregando...")
                     st.rerun()
                 else:
@@ -73,7 +78,7 @@ def tela_login():
 
 if not st.session_state.auth_token:
     # SE NÃO ESTIVER LOGADO: 
-    # Como não temos mais a pasta mágica 'pages', a barra lateral simplesmente NÃO EXISTE no primeiro acesso.
+    st.session_state.current_page = "login"
     pagina_login = st.Page(tela_login, title="Login", icon="🔒")
     pg = st.navigation([pagina_login])
     pg.run()
@@ -84,6 +89,7 @@ else:
     st.sidebar.header("Painel de Controle")
     if st.sidebar.button("Sair (Logout)"):
         st.session_state.auth_token = ""
+        st.session_state.current_page = "login"
         st.rerun()
         
     # Apontando para a nova pasta 'telas'
@@ -93,6 +99,12 @@ else:
     relatorios = st.Page("telas/03_📊_Relatórios.py", title="Relatórios", icon="📊")
     perfil = st.Page("telas/03_👤_Perfil.py", title="Perfil", icon="👤")
     
+    # Define a página inicial baseada no estado
+    if st.session_state.current_page == "dashboard":
+        initial_page = dashboard
+    else:
+        initial_page = dashboard  # Padrão para dashboard
+    
     # Executa a navegação completa
-    pg = st.navigation([dashboard, disciplinas, tarefas, relatorios, perfil])
+    pg = st.navigation([dashboard, disciplinas, tarefas, relatorios, perfil], position="sidebar")
     pg.run()

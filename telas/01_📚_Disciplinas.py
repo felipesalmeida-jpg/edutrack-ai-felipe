@@ -29,23 +29,23 @@ def buscar_disciplinas():
         st.error(f"Erro ao buscar disciplinas: {e}")
     return []
 
-def criar_disciplina(nome, professor, dia, semestre=""):
+def criar_disciplina(nome, professor, dia, semestre="", sala="", horario=""):
     """Cria uma nova disciplina"""
     try:
         api_url = f"{XANO_BASE_URL}/subjects"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
-        payload = {"name": nome, "professor": professor, "day_of_week": dia, "semester": semestre}
+        payload = {"name": nome, "professor": professor, "day_of_week": dia, "semester": semestre, "room": sala, "schedule": horario}
         response = requests.post(api_url, json=payload, headers=headers)
         return response.status_code == 200, response.json() if response.text else None
     except Exception as e:
         return False, str(e)
 
-def atualizar_disciplina(disciplina_id, nome, professor, dia, semestre=""):
+def atualizar_disciplina(disciplina_id, nome, professor, dia, semestre="", sala="", horario=""):
     """Atualiza uma disciplina existente"""
     try:
         api_url = f"{XANO_BASE_URL}/subjects/{disciplina_id}"
         headers = {"Authorization": f"Bearer {st.session_state.auth_token}"}
-        payload = {"name": nome, "professor": professor, "day_of_week": dia, "semester": semestre}
+        payload = {"name": nome, "professor": professor, "day_of_week": dia, "semester": semestre, "room": sala, "schedule": horario}
         response = requests.patch(api_url, json=payload, headers=headers)
         return response.status_code == 200, response.json() if response.text else None
     except Exception as e:
@@ -103,16 +103,20 @@ with tab1:
             prof = disc.get("professor", "N/A")
             dia = disc.get("day_of_week", "N/A")
             semestre = disc.get("semester", "N/A")
+            sala = disc.get("room", "N/A")
+            horario = disc.get("schedule", "N/A")
             status = disc.get("status", "active")
             
             # Container para cada disciplina
             with st.container(border=True):
-                col1, col2, col3, col4 = st.columns([2, 2, 1.5, 1.5])
+                col1, col2, col3, col4, col5, col6 = st.columns([2, 2, 1.5, 1.5, 1.5, 1.5])
                 
                 col1.write(f"**📖 {nome}**")
                 col2.write(f"👨‍🏫 {prof}")
                 col3.write(f"📅 {dia}")
                 col4.write(f"📚 {semestre}")
+                col5.write(f"🏫 {sala}")
+                col6.write(f"🕒 {horario}")
                 
                 # Status badge and metadata
                 if status == "archived":
@@ -153,12 +157,18 @@ with tab1:
                         dias = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
                         novo_dia = st.selectbox("Dia", dias, index=dias.index(dia) if dia in dias else 0, key=f"edit_dia_{disc_id}")
                     
-                    novo_semestre = st.text_input("Semestre", value=semestre if semestre != "N/A" else "", placeholder="Ex: 2024.1", key=f"edit_semestre_{disc_id}")
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        novo_semestre = st.text_input("Semestre", value=semestre if semestre != "N/A" else "", placeholder="Ex: 2024.1", key=f"edit_semestre_{disc_id}")
+                    with col2:
+                        novo_sala = st.text_input("Sala", value=sala if sala != "N/A" else "", placeholder="Ex: Sala 101", key=f"edit_sala_{disc_id}")
+                    with col3:
+                        novo_horario = st.text_input("Horário", value=horario if horario != "N/A" else "", placeholder="Ex: 08:00-10:00", key=f"edit_horario_{disc_id}")
                     
                     col1, col2 = st.columns(2)
                     if col1.button("💾 Salvar", key=f"save_{disc_id}", use_container_width=True, type="primary"):
                         if novo_nome and novo_prof and novo_dia:
-                            sucesso, msg = atualizar_disciplina(disc_id, novo_nome, novo_prof, novo_dia, novo_semestre)
+                            sucesso, msg = atualizar_disciplina(disc_id, novo_nome, novo_prof, novo_dia, novo_semestre, novo_sala, novo_horario)
                             if sucesso:
                                 st.success(f"✅ Disciplina '{novo_nome}' atualizada!")
                                 st.session_state[f"edit_mode_{disc_id}"] = False
@@ -233,7 +243,7 @@ with tab2:
     st.subheader("Criar Nova Disciplina")
     st.markdown("Preencha os campos abaixo para adicionar uma nova disciplina ao seu cronograma.")
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     
     with col1:
         novo_nome = st.text_input("📖 Nome da Disciplina", placeholder="Ex: Python Avançado")
@@ -244,9 +254,13 @@ with tab2:
         novo_dia = st.selectbox("📅 Dia da Semana", dias)
         novo_semestre = st.text_input("📚 Semestre", placeholder="Ex: 2024.1")
     
+    with col3:
+        novo_sala = st.text_input("🏫 Sala", placeholder="Ex: Sala 101")
+        novo_horario = st.text_input("🕒 Horário", placeholder="Ex: 08:00-10:00")
+    
     if st.button("✅ Criar Disciplina", type="primary", use_container_width=True):
         if novo_nome and novo_prof and novo_dia:
-            sucesso, msg = criar_disciplina(novo_nome, novo_prof, novo_dia, novo_semestre)
+            sucesso, msg = criar_disciplina(novo_nome, novo_prof, novo_dia, novo_semestre, novo_sala, novo_horario)
             if sucesso:
                 st.success(f"✅ Disciplina '{novo_nome}' criada com sucesso!")
                 st.balloons()
@@ -319,12 +333,8 @@ with tab3:
                     "Professor": d.get("professor"),
                     "Dia": d.get("day_of_week"),
                     "Semestre": d.get("semester", "N/A"),
-                    "Status": d.get("status", "active")
-                })
-            
-            df = pd.DataFrame(df_data)
-            st.dataframe(df, use_container_width=True, hide_index=True)
-        else:
+                "Sala": d.get("room", "N/A"),
+                "Horário": d.get("schedule", "N/A"),
             st.info("Nenhuma disciplina encontrada com os filtros selecionados.")
     else:
         st.info("Nenhuma disciplina disponível. Crie uma na aba 'Criar Nova'.")
